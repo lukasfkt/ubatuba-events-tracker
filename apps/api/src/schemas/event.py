@@ -15,5 +15,5 @@ class Event(EventBase):
     created_at: datetime
     updated_at: datetime
 
-    class Config:
-        orm_mode = True
+class Config:
+    from_attributes = True
