@@ -9,19 +9,15 @@ from alembic import context
 
 from dotenv import load_dotenv
 
-# Adiciona o caminho para importar o app
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 load_dotenv()
 
-# Aqui importe sua Base
 from src.database.session import Base
-from src.models import event  # importar todos seus models aqui
+from src.models import event, user 
 
-# Configuração Alembic
 config = context.config
 fileConfig(config.config_file_name)
 
-# Pegando URL do DATABASE_URL
 DATABASE_URL = os.getenv("DATABASE_URL")
 if DATABASE_URL is None:
     raise Exception("DATABASE_URL não encontrado!")
