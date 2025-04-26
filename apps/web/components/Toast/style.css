@@ -1,0 +1,7 @@
+.toast-message {
+  > * {
+    &:last-child {
+      margin: 0 !important;
+    }
+  }
+}
