@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import { create } from 'zustand'
 
-import { errorMessage, showToast } from '@/lib/utils'
+import { handleErroMessage, showToast } from '@/lib/utils'
 import { api } from '@/services/axios'
 
 export interface Token {
@@ -24,7 +24,7 @@ export const useAuthentication = create<useAuthenticationProps>(() => ({
       Cookies.set('token', JSON.stringify(tokens), { expires: 7 })
       return true
     } catch (error) {
-      errorMessage(error)
+      handleErroMessage(error)
       return false
     }
   },
@@ -37,7 +37,7 @@ export const useAuthentication = create<useAuthenticationProps>(() => ({
       Cookies.set('token', JSON.stringify(tokens), { expires: 7 })
       return true
     } catch (error) {
-      errorMessage(error)
+      handleErroMessage(error)
       return false
     }
   },

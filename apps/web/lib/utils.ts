@@ -11,11 +11,11 @@ export function showToast(message: string, type: 'success' | 'error') {
   return type === 'success' ? toast.success(message) : toast.error(message)
 }
 
-export function errorMessage(error: unknown) {
+export function handleErroMessage(error: unknown) {
   if (isAxiosError(error)) {
-    const errorMessage = error.response?.data.detail ?? 'Erro interno'
-    if (typeof errorMessage === 'string') {
-      showToast(errorMessage, 'error')
+    const handleErroMessage = error.response?.data.detail ?? 'Erro interno'
+    if (typeof handleErroMessage === 'string') {
+      showToast(handleErroMessage, 'error')
       return
     }
     showToast('Erro indefinido', 'error')

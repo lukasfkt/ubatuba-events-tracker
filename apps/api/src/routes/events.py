@@ -1,5 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
+from sqlalchemy import or_
 from src.database.session import SessionLocal
 from src.models.event import Event as EventModel
 from src.schemas.event import Event as EventSchema, EventCreate
@@ -20,8 +21,29 @@ def get_db():
         db.close()
 
 @router.get("/", response_model=list[EventSchema])
-def read_events(db: Session = Depends(get_db)):
-    return crud.get_events(db)
+def read_events(
+    db: Session = Depends(get_db),
+    page: int = Query(1, ge=1, description="Página atual (começando em 1)"),
+    limit: int = Query(10, ge=1, le=100, description="Número máximo de itens por página"),
+    search: str = Query(None, description="Termo de busca (título ou localização)"),
+):
+    query = db.query(EventModel)
+
+    # Pesquisa
+    if search:
+        search_term = f"%{search}%"
+        query = query.filter(
+            or_(
+                EventModel.title.ilike(search_term),
+                EventModel.location.ilike(search_term),
+            )
+        )
+
+    # Paginação
+    offset = (page - 1) * limit
+    events = query.offset(offset).limit(limit).all()
+
+    return events
 
 @router.get("/{event_id}", response_model=EventSchema)
 def read_event(event_id: int, db: Session = Depends(get_db)):

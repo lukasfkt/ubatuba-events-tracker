@@ -7,8 +7,8 @@ class Event(Base):
 
     id = Column(Integer, primary_key=True)
     title = Column(String, index=True)
+    location = Column(String, index=True)
     description = Column(String)
-    location = Column(String)
     date = Column(DateTime, default=datetime.datetime.now(datetime.UTC))
     created_at = Column(DateTime, default=datetime.datetime.now(datetime.UTC))
     updated_at = Column(DateTime, default=datetime.datetime.now(datetime.UTC), onupdate=datetime.datetime.now(datetime.UTC))

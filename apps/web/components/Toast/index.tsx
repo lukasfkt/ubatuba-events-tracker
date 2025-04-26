@@ -25,7 +25,7 @@ function ToastContainer({ t, message }: ToastContainerProps) {
   return (
     <div
       onClick={() => toast.dismiss(t.id)}
-      className={`relative z-50 flex cursor-pointer items-center gap-5 p-8`}
+      className={`relative z-50 flex cursor-pointer items-center gap-5 p-3`}
     >
       {toastType[t.type]}
       <div className="flex flex-col items-start justify-start gap-1 text-sm">

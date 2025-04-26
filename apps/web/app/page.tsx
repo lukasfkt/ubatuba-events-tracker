@@ -6,6 +6,15 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useAuthentication } from '@/hooks/useAuthentication'
 import { useRouter } from 'next/navigation'
+import { Input } from '@/components/ui/input'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 
 const authSchema = z.object({
   username: z.string().min(6, 'Usuário deve ter pelo menos 6 caracteres'),
@@ -56,75 +65,61 @@ export default function AuthPage() {
     },
     [isLogin, login, registerUser, reset, router, setError],
   )
-
-  const handleChangeForm = useCallback(() => {
-    setIsLogin(!isLogin)
-    reset()
-  }, [isLogin, reset])
-
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300">
-      <div className="w-full max-w-md rounded-2xl bg-white p-10 shadow-md">
-        <h1 className="mb-6 text-center font-sans text-3xl font-extrabold text-gray-800">
-          {isLogin ? 'Login' : 'Cadastro'}
-        </h1>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 p-5">
+      <Card className="w-full max-w-md">
+        <CardHeader>
+          <CardTitle className="text-3xl font-bold">
+            {isLogin ? 'Bem vindo!' : 'Criar conta'}
+          </CardTitle>
+          <CardDescription className="text-sm">
+            Digite suas credenciais nos campos abaixo
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+            <div>
+              <label className="mb-1 block text-sm font-medium text-gray-700">
+                Usuário
+              </label>
+              <Input
+                type="text"
+                {...register('username')}
+                placeholder="Digite seu usuário"
+                error={errors.username?.message}
+              />
+            </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              Usuário
-            </label>
-            <input
-              type="text"
-              {...register('username')}
-              className={`w-full rounded-lg border p-3 focus:outline-none focus:ring-2 ${errors.username ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-indigo-500'}`}
-              placeholder="Seu nome de usuário"
-            />
-            {errors.username && (
-              <p className="mt-1 text-sm text-red-500">
-                {errors.username.message}
-              </p>
-            )}
+            <div>
+              <label className="mb-1 block text-sm font-medium text-gray-700">
+                Senha
+              </label>
+              <Input
+                type="password"
+                {...register('password')}
+                placeholder="Digite sua senha"
+                error={errors.password?.message}
+              />
+            </div>
+
+            <Button className="w-full" type="submit" disabled={isSubmitting}>
+              {isLogin ? 'Entrar' : 'Cadastrar'}
+            </Button>
+          </form>
+
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setIsLogin(!isLogin)}
+              disabled={isSubmitting}
+              className="text-sm hover:underline disabled:opacity-50"
+            >
+              {isLogin
+                ? 'Não tem conta? Cadastre-se'
+                : 'Já tem conta? Faça login'}
+            </button>
           </div>
-
-          <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              Senha
-            </label>
-            <input
-              type="password"
-              {...register('password')}
-              className={`w-full rounded-lg border p-3 focus:outline-none focus:ring-2 ${errors.password ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-indigo-500'}`}
-              placeholder="Sua senha"
-            />
-            {errors.password && (
-              <p className="mt-1 text-sm text-red-500">
-                {errors.password.message}
-              </p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full rounded-lg bg-indigo-600 py-3 font-semibold text-white transition hover:bg-indigo-700 disabled:opacity-50"
-          >
-            {isLogin ? 'Entrar' : 'Cadastrar'}
-          </button>
-        </form>
-
-        <div className="mt-6 text-center">
-          <button
-            onClick={handleChangeForm}
-            disabled={isSubmitting}
-            className="text-sm text-indigo-600 hover:underline disabled:opacity-50"
-          >
-            {isLogin
-              ? 'Não tem conta? Cadastre-se'
-              : 'Já tem conta? Faça login'}
-          </button>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }

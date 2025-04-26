@@ -1,3 +1,4 @@
+import { QueryClientWrapper } from '@/components/QueryClientProvider'
 import './globals.css'
 import { ToasterProvider } from '@/components/Toast'
 import type { Metadata } from 'next'
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.className} relative antialiased`}>
         <ToasterProvider />
-        {children}
+        <QueryClientWrapper>{children}</QueryClientWrapper>
       </body>
     </html>
   )
