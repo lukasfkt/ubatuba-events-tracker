@@ -4,17 +4,16 @@ import { useEffect, useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useInView } from 'react-intersection-observer'
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useEvents } from '@/hooks/useEvents'
 import { SearchInput } from '@/components/SearchInput'
 import { LoadingComponent } from '@/components/LoadingComponent'
+import { EventCard } from '@/components/EventCard'
+import { Header } from '@/components/Header'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogTrigger } from '@/components/ui/dialog'
+import { Plus } from 'lucide-react'
+import { CreateEventDialog } from '@/components/CreateEventDialog'
 
 export default function EventsPage() {
   const { fetchEvents } = useEvents()
@@ -52,23 +51,30 @@ export default function EventsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-300 p-6">
-      <div className="mx-auto max-w-3xl">
-        <h1 className="bg-red mb-6 text-3xl font-bold text-gray-800">
-          Eventos
-        </h1>
-
-        <SearchInput
-          placeholder="Buscar por título ou localização..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') refetch()
-          }}
-        />
+      <Header />
+      <div className="mx-auto max-w-3xl pt-16">
+        <div className="flex items-center gap-5">
+          <SearchInput
+            placeholder="Search by title or location..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') refetch()
+            }}
+          />
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button title="Create Event" className="h-11" variant={'outline'}>
+                <Plus />
+              </Button>
+            </DialogTrigger>
+            <CreateEventDialog />
+          </Dialog>
+        </div>
 
         <div className="mt-8 flex flex-col gap-4">
           {!isFetched
-            ? Array.from({ length: 3 }).map((_, i) => (
+            ? Array.from({ length: 5 }).map((_, i) => (
                 <Skeleton key={i} className="h-28 w-full rounded-lg" />
               ))
             : eventsList?.pages.map((page, pageIndex) => (
@@ -79,24 +85,12 @@ export default function EventsPage() {
                       index === page.length - 1
                     const shouldObserve = isLastItem && !isFetchingNextPage
                     return (
-                      <Card
+                      <EventCard
                         key={event.id}
-                        className="transition-all hover:shadow-lg"
-                        ref={shouldObserve ? ref : undefined}
-                      >
-                        <CardHeader>
-                          <CardTitle className="text-sky-800">
-                            {event.name}
-                          </CardTitle>
-                          <CardDescription>{event.location}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-2 text-sm text-gray-700">
-                          <p className="text-xs text-gray-500">
-                            {new Date(event.date).toLocaleDateString('pt-BR')}
-                          </p>
-                          <p>{event.description}</p>
-                        </CardContent>
-                      </Card>
+                        ref={ref}
+                        shouldObserve={shouldObserve}
+                        eventDetails={event}
+                      />
                     )
                   })}
                 </div>

@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime
-from src.database.session import Base
+from src.database.base import Base
 import datetime
 
 class Event(Base):
@@ -9,6 +9,8 @@ class Event(Base):
     title = Column(String, index=True)
     location = Column(String, index=True)
     description = Column(String)
+    category = Column(String)
+    image_url = Column(String)
     date = Column(DateTime, default=datetime.datetime.now(datetime.UTC))
     created_at = Column(DateTime, default=datetime.datetime.now(datetime.UTC))
     updated_at = Column(DateTime, default=datetime.datetime.now(datetime.UTC), onupdate=datetime.datetime.now(datetime.UTC))

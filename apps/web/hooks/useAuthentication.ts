@@ -3,11 +3,7 @@ import { create } from 'zustand'
 
 import { handleErroMessage, showToast } from '@/lib/utils'
 import { api } from '@/services/axios'
-
-export interface Token {
-  access_token: string
-  refresh_token: string
-}
+import type { Token } from '@/types'
 
 interface useAuthenticationProps {
   login: (username: string, password: string) => Promise<boolean>
@@ -19,7 +15,7 @@ export const useAuthentication = create<useAuthenticationProps>(() => ({
   login: async (username: string, password: string) => {
     try {
       const { data } = await api.post('/login/', { username, password })
-      showToast('Usuário autenticado com sucesso', 'success')
+      showToast('User authenticated successfully', 'success')
       const tokens: Token = data
       Cookies.set('token', JSON.stringify(tokens), { expires: 7 })
       return true
@@ -32,7 +28,7 @@ export const useAuthentication = create<useAuthenticationProps>(() => ({
   registerUser: async (username: string, password: string) => {
     try {
       const { data } = await api.post('/register/', { username, password })
-      showToast('Usuário cadastrado com sucesso', 'success')
+      showToast('User registered successfully', 'success')
       const tokens: Token = data
       Cookies.set('token', JSON.stringify(tokens), { expires: 7 })
       return true

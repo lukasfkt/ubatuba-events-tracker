@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 load_dotenv()
 
-from src.database.session import Base
+from src.database.base import Base
 from src.models import event, user 
 
 config = context.config

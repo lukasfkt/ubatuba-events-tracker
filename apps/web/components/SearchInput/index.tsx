@@ -9,7 +9,7 @@ export const SearchInput = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <div
-      className={`flex w-full items-center gap-2 rounded-lg border border-gray-300 bg-white p-3 px-2 py-[10px] text-base focus:outline-none`}
+      className={`flex h-11 w-full items-center gap-2 rounded-lg border border-input bg-white p-3 px-2 py-[10px] text-base focus:outline-none`}
     >
       <Search className="h-4 w-4 text-gray-800" />
       <input

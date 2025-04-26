@@ -2,16 +2,7 @@ import { create } from 'zustand'
 
 import { handleErroMessage } from '@/lib/utils'
 import { api } from '@/services/axios'
-
-export interface Event {
-  id: number
-  name: string
-  description: string
-  location: string
-  date: string
-  created_at: string
-  updated_at: string
-}
+import type { Event } from '@/types'
 
 interface FetchEventsParams {
   page: number

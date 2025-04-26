@@ -64,7 +64,7 @@ api.interceptors.response.use(
       try {
         const refreshToken = getRefreshToken()
         const response = await api.post(`/refresh/`, {
-          refresh: refreshToken,
+          refresh_token: refreshToken,
         })
 
         const newTokens: Token = response.data

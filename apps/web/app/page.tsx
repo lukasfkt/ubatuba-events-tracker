@@ -49,10 +49,10 @@ export default function AuthPage() {
           return
         }
         setError('username', {
-          message: 'Usuário ou senha incorretos',
+          message: 'Username or password is incorrect',
         })
         setError('password', {
-          message: 'Usuário ou senha incorretos',
+          message: 'Username or password is incorrect',
         })
       } else {
         const response = await registerUser(data.username, data.password)
@@ -70,22 +70,22 @@ export default function AuthPage() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle className="text-3xl font-bold">
-            {isLogin ? 'Bem vindo!' : 'Criar conta'}
+            {isLogin ? 'Welcome!' : 'Create an account'}
           </CardTitle>
           <CardDescription className="text-sm">
-            Digite suas credenciais nos campos abaixo
+            Fill the informations below
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-700">
-                Usuário
+                Username
               </label>
               <Input
                 type="text"
                 {...register('username')}
-                placeholder="Digite seu usuário"
+                placeholder="Type your username..."
                 error={errors.username?.message}
               />
             </div>
@@ -97,13 +97,13 @@ export default function AuthPage() {
               <Input
                 type="password"
                 {...register('password')}
-                placeholder="Digite sua senha"
+                placeholder="Type your password..."
                 error={errors.password?.message}
               />
             </div>
 
             <Button className="w-full" type="submit" disabled={isSubmitting}>
-              {isLogin ? 'Entrar' : 'Cadastrar'}
+              {isLogin ? 'Login' : 'Register'}
             </Button>
           </form>
 
@@ -114,8 +114,8 @@ export default function AuthPage() {
               className="text-sm hover:underline disabled:opacity-50"
             >
               {isLogin
-                ? 'Não tem conta? Cadastre-se'
-                : 'Já tem conta? Faça login'}
+                ? 'Don’t have an account? Register'
+                : 'Already have an account? Login'}
             </button>
           </div>
         </CardContent>

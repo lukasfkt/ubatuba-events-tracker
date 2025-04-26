@@ -1,8 +1,8 @@
 """create users and events tables
 
-Revision ID: eeda2447320f
+Revision ID: 4b56b1667cc8
 Revises: 
-Create Date: 2025-04-25 21:49:46.394161
+Create Date: 2025-04-26 16:58:29.607673
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'eeda2447320f'
+revision: str = '4b56b1667cc8'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -24,13 +24,16 @@ def upgrade() -> None:
     op.create_table('events',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(), nullable=True),
-    sa.Column('description', sa.String(), nullable=True),
     sa.Column('location', sa.String(), nullable=True),
+    sa.Column('description', sa.String(), nullable=True),
+    sa.Column('category', sa.String(), nullable=True),
+    sa.Column('image_url', sa.String(), nullable=True),
     sa.Column('date', sa.DateTime(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_index(op.f('ix_events_location'), 'events', ['location'], unique=False)
     op.create_index(op.f('ix_events_title'), 'events', ['title'], unique=False)
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -48,5 +51,6 @@ def downgrade() -> None:
     op.drop_index(op.f('ix_users_username'), table_name='users')
     op.drop_table('users')
     op.drop_index(op.f('ix_events_title'), table_name='events')
+    op.drop_index(op.f('ix_events_location'), table_name='events')
     op.drop_table('events')
     # ### end Alembic commands ###
