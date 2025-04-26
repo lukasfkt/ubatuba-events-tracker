@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
       "dev": ".\\.venv\\Scripts\\python run.py",
+      "migrate": ".\\.venv\\Scripts\\alembic upgrade head",
       "generate:requirements": "poetry export --without-hashes --format=requirements.txt > requirements.txt"
   }
 }

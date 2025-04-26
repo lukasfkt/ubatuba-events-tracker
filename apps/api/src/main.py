@@ -5,9 +5,8 @@ from src.models.event import Event as EventModel
 from src.schemas.event import Event as EventSchema, EventCreate
 from src.crud import base as crud
 
-from src.database.session import Base, engine
 
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 

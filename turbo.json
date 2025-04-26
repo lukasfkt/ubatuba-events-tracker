@@ -13,9 +13,17 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "migrate": {
+      "outputs": []
+    },
+    "backend": {
+      "dependsOn": ["^migrate"],
+      "outputs": []
+    },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["migrate", "backend"]
     }
   }
 }
