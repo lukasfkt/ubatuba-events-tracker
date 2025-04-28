@@ -9,11 +9,11 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 ## 🚀 Tech Stack
 
 |   Area   |                                                                                                                                 Technology                                                                                                                                 |
-| :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | --- |
 | Monorepo |                                                                                                                   [Turborepo](https://turbo.build/repo)                                                                                                                    |
 | Frontend | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Zustand](https://zustand-demo.pmnd.rs/), [React Query](https://tanstack.com/query/latest), [Zod](https://zod.dev/), [Lucide Icons](https://lucide.dev/), [shadcn/ui](https://ui.shadcn.com/) |
 | Backend  |                                                   [FastAPI](https://fastapi.tiangolo.com/), [SQLAlchemy](https://www.sqlalchemy.org/), [JWT Authentication](https://jwt.io/), [Alembic](https://alembic.sqlalchemy.org/)                                                   |
-| Database |                                                                                                                          PostgreSQL (Dockerized)                                                                                                                           |
+| Database |                                                                                                                 [PostgreSQL](https://www.postgresql.org/)                                                                                                                  |     |
 
 ## ⚙️ Setup Instructions
 
