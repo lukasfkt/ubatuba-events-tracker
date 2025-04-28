@@ -27,7 +27,7 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 2. **Install dependencies**
 
    ```bash
-   pnpm install
+   pnpm full:install
    ```
 
 3. **Setup Environment Variables**
