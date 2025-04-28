@@ -14,7 +14,7 @@ export const SearchInput = React.forwardRef<
       <Search className="h-4 w-4 text-gray-800" />
       <input
         className={cn(
-          `w-full flex-1 bg-transparent text-gray-800 outline-none`,
+          `w-full flex-1 bg-transparent text-sm text-gray-800 outline-none`,
           className,
         )}
         ref={ref}

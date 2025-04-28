@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
-import { Token } from '@/hooks/useAuthentication'
+import { Token } from '@/types'
 
 const enviromentDomain = process.env.NEXT_PUBLIC_API_URL
 const baseURL = enviromentDomain ? enviromentDomain : 'http://localhost:8000'

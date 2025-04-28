@@ -1,8 +1,10 @@
 import Cookies from 'js-cookie'
 import { create } from 'zustand'
 
-import { handleErroMessage, showToast } from '@/lib/utils'
 import { api } from '@/services/axios'
+
+import { handleErroMessage, showToast } from '@/lib/utils'
+
 import type { Token } from '@/types'
 
 interface useAuthenticationProps {

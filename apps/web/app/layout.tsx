@@ -1,8 +1,9 @@
-import { QueryClientWrapper } from '@/components/QueryClientProvider'
-import './globals.css'
-import { ToasterProvider } from '@/components/Toast'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
+import './globals.css'
+
+import { QueryClientWrapper } from '@/components/QueryClientProvider'
+import { ToasterProvider } from '@/components/Toast'
 
 const montserrat = Montserrat({
   weight: ['500', '600', '700', '800'],

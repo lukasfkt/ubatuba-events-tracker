@@ -1,11 +1,13 @@
 'use client'
 
-import { useCallback, useState } from 'react'
-import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { useCallback, useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useAuthentication } from '@/hooks/useAuthentication'
-import { useRouter } from 'next/navigation'
+
 import { Input } from '@/components/ui/input'
 import {
   Card,
@@ -34,6 +36,7 @@ export default function AuthPage() {
     handleSubmit,
     reset,
     setError,
+    clearErrors,
     formState: { errors, isSubmitting },
   } = useForm<AuthSchema>({
     resolver: zodResolver(authSchema),
@@ -49,10 +52,10 @@ export default function AuthPage() {
           return
         }
         setError('username', {
-          message: 'Username or password is incorrect',
+          message: ' ',
         })
         setError('password', {
-          message: 'Username or password is incorrect',
+          message: ' ',
         })
       } else {
         const response = await registerUser(data.username, data.password)
@@ -65,6 +68,12 @@ export default function AuthPage() {
     },
     [isLogin, login, registerUser, reset, router, setError],
   )
+
+  useEffect(() => {
+    clearErrors()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLogin])
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 p-5">
       <Card className="w-full max-w-md">

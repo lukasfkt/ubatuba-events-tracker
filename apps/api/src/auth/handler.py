@@ -10,7 +10,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_SECONDS = 15 * 60
 REFRESH_TOKEN_EXPIRE_SECONDS = 7 * 24 * 60 * 60
 
-def sign_access_token(user_id: str) -> Dict[str, str]:
+def sign_access_token(user_id: int) -> Dict[str, str]:
     payload = {
         "user_id": user_id,
         "expires": time.time() + ACCESS_TOKEN_EXPIRE_SECONDS
@@ -18,7 +18,7 @@ def sign_access_token(user_id: str) -> Dict[str, str]:
     token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
     return {"access_token": token}
 
-def sign_refresh_token(user_id: str) -> Dict[str, str]:
+def sign_refresh_token(user_id: int) -> Dict[str, str]:
     payload = {
         "user_id": user_id,
         "expires": time.time() + REFRESH_TOKEN_EXPIRE_SECONDS

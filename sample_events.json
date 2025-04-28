@@ -5,7 +5,7 @@
     "date": "2025-05-10T18:00:00",
     "location": "Itaguá beach",
     "category": "Music",
-    "image": "https://placebear.com/200/300"
+    "image_url": "https://placebear.com/200/300"
   },
   {
     "title": "Surf Championship",
@@ -13,6 +13,6 @@
     "date": "2025-06-15T08:00:00",
     "location": "Praia Grande Beach",
     "category": "Sports",
-    "image": "https://placebear.com/300/300"
+    "image_url": "https://placebear.com/300/300"
   }
 ]

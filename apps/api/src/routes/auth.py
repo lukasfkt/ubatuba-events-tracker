@@ -26,8 +26,8 @@ def register(user: UserSignup, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
     return {
-        **sign_access_token(user.username),
-        **sign_refresh_token(user.username)
+        **sign_access_token(new_user.id),
+        **sign_refresh_token(new_user.id)
     }
 
 @router.post("/login")
@@ -36,8 +36,8 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     if not db_user:
         raise HTTPException(status_code=400, detail="Invalid credentials")
     return {
-        **sign_access_token(user.username),
-        **sign_refresh_token(user.username)
+        **sign_access_token(db_user.id),
+        **sign_refresh_token(db_user.id)
     }
 
 @router.post("/refresh")

@@ -8,10 +8,14 @@ export interface Event {
   title: string
   description: string
   location: string
-  date: string
-  category: string
-  imageUrl: string
+  date: Date
+  category: CategoryEnum
+  imageUrl?: string
 }
+
+export type CreateEventDTO = Omit<Event, 'id'>
+
+export type UpdateEventDTO = Partial<CreateEventDTO>
 
 export enum CategoryEnum {
   MUSIC = 'Music',
