@@ -2,13 +2,9 @@
 
 A full-stack web application that allows users to browse, search, and manage local events in Ubatuba, São Paulo.
 
----
-
 ## 📋 Project Overview
 
 This project provides a **responsive frontend** and a **robust backend** to interact with local events, including authentication, event categorization, and image upload features.
-
----
 
 ## 🚀 Tech Stack
 
@@ -18,8 +14,6 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 | Frontend | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Zustand](https://zustand-demo.pmnd.rs/), [React Query](https://tanstack.com/query/latest), [Zod](https://zod.dev/), [Lucide Icons](https://lucide.dev/), [shadcn/ui](https://ui.shadcn.dev/) |
 | Backend  |                                                   [FastAPI](https://fastapi.tiangolo.com/), [SQLAlchemy](https://www.sqlalchemy.org/), [JWT Authentication](https://jwt.io/), [Alembic](https://alembic.sqlalchemy.org/)                                                   |
 | Database |                                                                                                                          PostgreSQL (Dockerized)                                                                                                                           |
-
----
 
 ## ⚙️ Setup Instructions
 
@@ -52,8 +46,6 @@ This project provides a **responsive frontend** and a **robust backend** to inte
    pnpm run dev
    ```
 
----
-
 ## 👉 Application Structure
 
 ```bash
@@ -67,8 +59,6 @@ This project provides a **responsive frontend** and a **robust backend** to inte
   /tailwind-config
   /typescript-config
 ```
-
----
 
 ## 🔥 Features
 
@@ -99,8 +89,6 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 - 🚀 Optimized API communication with React Query
 - 🛠️ Form validation powered by Zod
 
----
-
 ## 📚 API Documentation
 
 |  Method  |     Endpoint     |                            Description                            |
@@ -114,8 +102,6 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 |  `POST`  |  `/auth/login`   |          Login and receive JWT access and refresh tokens          |
 |  `POST`  | `/auth/refresh`  |                     Refresh the access token                      |
 
----
-
 ## 🎯 Evaluation Criteria
 
 - ✅ Code Quality (Clean, documented, readable)
@@ -125,8 +111,6 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 - ✅ RESTful API Design
 - ✅ Unit and Integration Testing Ready
 - ✅ Complete Documentation
-
----
 
 ## 📦 Sample Event Data
 
