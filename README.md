@@ -99,6 +99,7 @@ pnpm run dev
 - 📦 State management using Zustand
 - 🚀 Optimized API communication with React Query
 - 🛠️ Form validation powered by Zod
+- 🧪 Frontend Testing with Jest (requires Node.js 21)
 
 ## 📚 API Documentation
 
@@ -146,6 +147,15 @@ Inside the repo will have a file called sample_events.json with the examples
     "image_url": "https://placebear.com/300/300"
   }
 ]
+```
+
+## 🧪 Frontend Testing
+
+- This project uses **Jest** for unit and integration tests on the frontend.
+- To run the frontend tests, navigate to the `apps/web` folder and execute:
+
+```bash
+pnpm run jest
 ```
 
 ## 💬 Additional Notes

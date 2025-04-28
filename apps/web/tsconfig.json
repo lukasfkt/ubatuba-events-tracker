@@ -4,7 +4,7 @@
     "plugins": [
       {
         "name": "next"
-      },
+      }
     ],
     "paths": {
       "@/*": ["./*"]
@@ -15,7 +15,8 @@
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "babel.config.cjs"
   ],
   "exclude": ["node_modules"]
 }
