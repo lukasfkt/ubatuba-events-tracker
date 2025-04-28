@@ -5,7 +5,6 @@ from src.auth.handler import sign_access_token, sign_refresh_token, decode_refre
 from src.database.base import SessionLocal
 from src.models.user import User
 from src.schemas.user import UserSignup, UserLogin, TokenRefresh 
-from pydantic import BaseModel
 
 router = APIRouter()
 

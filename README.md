@@ -1,58 +1,160 @@
-# Turborepo Tailwind CSS starter
+# 🎉 Ubatuba Events Tracker
 
-This Turborepo starter is maintained by the Turborepo core team.
+A full-stack web application that allows users to browse, search, and manage local events in Ubatuba, São Paulo.
 
-## Using this example
+---
 
-Run the following command:
+## 📋 Project Overview
 
-```sh
-npx create-turbo@latest -e with-tailwind
+This project provides a **responsive frontend** and a **robust backend** to interact with local events, including authentication, event categorization, and image upload features.
+
+---
+
+## 🚀 Tech Stack
+
+|   Area   |                                                                                                                                 Technology                                                                                                                                 |
+| :------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| Monorepo |                                                                                                                   [Turborepo](https://turbo.build/repo)                                                                                                                    |
+| Frontend | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Zustand](https://zustand-demo.pmnd.rs/), [React Query](https://tanstack.com/query/latest), [Zod](https://zod.dev/), [Lucide Icons](https://lucide.dev/), [shadcn/ui](https://ui.shadcn.dev/) |
+| Backend  |                                                   [FastAPI](https://fastapi.tiangolo.com/), [SQLAlchemy](https://www.sqlalchemy.org/), [JWT Authentication](https://jwt.io/), [Alembic](https://alembic.sqlalchemy.org/)                                                   |
+| Database |                                                                                                                          PostgreSQL (Dockerized)                                                                                                                           |
+
+---
+
+## ⚙️ Setup Instructions
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/ubatuba-events-tracker.git
+   cd ubatuba-events-tracker
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Setup Environment Variables**
+
+   - Copy `.env.example` files inside `apps/api` and `apps/web` to `.env`
+   - Fill in the necessary environment values (like database connection).
+
+4. **Start Database using Docker**
+
+   ```bash
+   pnpm run docker:build
+   ```
+
+5. **Run the Development Environment**
+   ```bash
+   pnpm run dev
+   ```
+
+---
+
+## 👉 Application Structure
+
+```bash
+/apps
+  /api   # FastAPI backend (Python)
+  /web   # Next.js 15 frontend (React + Tailwind)
+
+/packages
+  /eslint-config
+  /prettier
+  /tailwind-config
+  /typescript-config
 ```
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## 🔥 Features
 
-### Apps and Packages
+### Frontend
 
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- 🗓 Event Listing
+- 🔍 Search & Filter Events (by title, location, and category)
+- 📄 Event Detail View
+- ✍️ Create, Edit, and Delete Events
+- ~~🖼 Upload Event Images (S3 integration)~~ - TO DO
+- 📱 Fully Responsive Design
+- 🔐 User Authentication (Login & Register)
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Backend
 
-### Building packages/ui
+- 📁 RESTful API endpoints
+- ✅ Data validation with Pydantic
+- 📚 ORM with SQLAlchemy
+- 🛡 Secure Authentication using JWT
+- 🛆 Alembic Migrations
+- 🐿 PostgreSQL with Docker
 
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.ts`. This was chosen for several reasons:
+### Bonus
 
-- Make sharing one `tailwind.config.ts` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
+- 🎨 Beautiful UI using Tailwind CSS and shadcn components
+- ⚡ Fast Monorepo development with Turborepo
+- 📦 State management using Zustand
+- 🚀 Optimized API communication with React Query
+- 🛠️ Form validation powered by Zod
 
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.ts` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
+---
 
-For example, in [tailwind.config.ts](packages/tailwind-config/tailwind.config.ts):
+## 📚 API Documentation
 
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
+|  Method  |     Endpoint     |                            Description                            |
+| :------: | :--------------: | :---------------------------------------------------------------: |
+|  `GET`   |    `/events`     | List all events (supports search, category filtering, pagination) |
+|  `GET`   |  `/events/{id}`  |                      Get event details by ID                      |
+|  `POST`  |    `/events`     |                        Create a new event                         |
+|  `PUT`   |  `/events/{id}`  |                     Update an existing event                      |
+| `DELETE` |  `/events/{id}`  |                          Delete an event                          |
+|  `POST`  | `/auth/register` |                        Register a new user                        |
+|  `POST`  |  `/auth/login`   |          Login and receive JWT access and refresh tokens          |
+|  `POST`  | `/auth/refresh`  |                     Refresh the access token                      |
+
+---
+
+## 🎯 Evaluation Criteria
+
+- ✅ Code Quality (Clean, documented, readable)
+- ✅ Logical Project Structure
+- ✅ Full Functional Requirements Met
+- ✅ Responsive and Attractive UI
+- ✅ RESTful API Design
+- ✅ Unit and Integration Testing Ready
+- ✅ Complete Documentation
+
+---
+
+## 📦 Sample Event Data
+
+Inside the repo will have a file called sample_events.json with the examples
+
+```json
+[
+  {
+    "title": "Ubatuba Music Festival",
+    "description": "A celebration of local music talent.",
+    "date": "2025-05-10T18:00:00",
+    "location": "Itaguá beach",
+    "category": "Music",
+    "image_url": "https://placebear.com/200/300"
+  },
+  {
+    "title": "Surf Championship",
+    "description": "Annual surfing competition.",
+    "date": "2025-06-15T08:00:00",
+    "location": "Praia Grande Beach",
+    "category": "Sports",
+    "image_url": "https://placebear.com/300/300"
+  }
+]
 ```
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+## 💬 Additional Notes
 
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- PostgreSQL database is containerized via Docker.
+- .env examples are provided to ease setup.
+- Optimized builds via Turborepo for scalable mono-repo management.
