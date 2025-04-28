@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.routes.auth import router as auth_router
@@ -5,8 +6,10 @@ from src.routes.events import router as events_router
 
 app = FastAPI()
 
+front_url = os.getenv("FRONT_END_URL", "http://localhost:3000")
+
 origins = [
-  "http://localhost:3000",
+  front_url,
 ]
 
 app.add_middleware(

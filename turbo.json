@@ -14,11 +14,14 @@
       "dependsOn": ["^check-types"]
     },
     "migrate": {
-      "outputs": []
+      "outputs": [],
+      "dependsOn": [],
+      "cache": false
     },
     "backend": {
       "dependsOn": ["^migrate"],
-      "outputs": []
+      "outputs": [],
+      "cache": false
     },
     "dev": {
       "cache": false,
