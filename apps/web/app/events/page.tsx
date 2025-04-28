@@ -120,6 +120,9 @@ export default function EventsPage() {
         </div>
 
         <div className="mt-8 flex flex-col gap-4">
+          {eventsList?.pages?.[0]?.length === 0 && (
+            <p className="text-center text-lg">No events found</p>
+          )}
           {!isFetched
             ? Array.from({ length: 5 }).map((_, i) => (
                 <Skeleton key={i} className="h-28 w-full rounded-lg" />

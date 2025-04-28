@@ -58,3 +58,4 @@ cover/
 
 # Environments
 .venv
+.venv-test
