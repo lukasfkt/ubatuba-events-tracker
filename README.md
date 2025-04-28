@@ -1,10 +1,10 @@
-# 🎉 Ubatuba Events Tracker
+# Ubatuba Events Tracker
 
 A full-stack web application that allows users to browse, search, and manage local events in Ubatuba, São Paulo.
 
 ## 📋 Project Overview
 
-This project provides a **responsive frontend** and a **robust backend** to interact with local events, including authentication, event categorization, and image upload features.
+This project provides a **responsive frontend** and a **robust backend** to interact with events, including authentication and event categorization.
 
 ## 🚀 Tech Stack
 
@@ -75,9 +75,8 @@ pnpm run dev
 
 ### Frontend
 
-- 🗓 Event Listing
+- 🗓 Event Listing with infinite scrolling method
 - 🔍 Search & Filter Events (by title, location, and category)
-- 📄 Event Detail View
 - ✍️ Create, Edit, and Delete Events
 - ~~🖼 Upload Event Images (S3 integration)~~ - TO DO
 - 📱 Fully Responsive Design
