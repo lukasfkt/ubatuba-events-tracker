@@ -44,7 +44,7 @@ Make sure you have installed:
   poetry --version
   ```
 
-- [Docker](https://www.docker.com/) (for running the PostgreSQL database)
+- [Docker](https://www.docker.com/)  (for running the PostgreSQL database and/or the API)
 
 ## ⚙️ Setup Instructions
 
@@ -64,26 +64,27 @@ Make sure you have installed:
 3. **Setup Environment Variables**
 
 - Copy `.env.example` files inside `apps/api` and `apps/web` to `.env`
-- Fill in the necessary environment values (like database connection).
 
    ```bash
    cp apps/api/.env.example apps/api/.env
    cp apps/web/.env.example apps/web/.env
    ```
 
+*If you are going to use docker for api, you need to change the environment values 
+
 4. **Start Database using Docker**
 
 - If this is your first time, run a docker build:
 
 ```bash
-pnpm run docker:build
+pnpm run docker:db:build
 ```
 
 - If you have already run the docker build, run the command below:
 
 ```bash
 
-pnpm run docker:up
+pnpm run docker:db:up
 
 ```
 
@@ -92,6 +93,29 @@ pnpm run docker:up
 ```bash
 pnpm run dev
 ```
+
+* If you are using docker on api, run these commands instead:
+
+- If this is your first time, run a docker build:
+
+```bash
+pnpm run docker:api:build
+```
+
+- If you have already run the docker build, run the command below:
+
+```bash
+
+pnpm run docker:api:up
+
+```
+
+- For front-end:
+
+```bash
+pnpm run web
+```
+
 
 ## 👉 Application Structure
 

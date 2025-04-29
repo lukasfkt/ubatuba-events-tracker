@@ -7,9 +7,17 @@
     "lint": "turbo run lint",
     "check-types": "turbo run check-types",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "docker:up": "docker compose up -d",
-    "docker:build": "docker compose up --build -d",
-    "docker:down": "docker compose down",
+
+    "docker:db:up": "docker compose up -d",
+    "docker:db:build": "docker compose up --build -d",
+    "docker:db:down": "docker compose down",
+
+    "docker:api:up": "docker compose -f apps/api/docker-compose.yml up -d",
+    "docker:api:build": "docker compose -f apps/api/docker-compose.yml up --build -d",
+    "docker:api:down": "docker compose -f apps/api/docker-compose.yml down",
+
+    "web": "turbo run dev --filter=web",
+
     "full:install": "pnpm install && cd apps/api && poetry install"
   },
   "devDependencies": {
