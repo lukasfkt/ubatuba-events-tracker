@@ -118,7 +118,7 @@ pnpm run docker:api:up
 pnpm run web
 ```
 
-> Frontend runs on: http://localhost:3000
+> Frontend runs on: http://localhost:3000 <br>
 > Backend runs on: http://localhost:8000
 
 ## 👉 Application Structure
