@@ -63,8 +63,8 @@ Make sure you have installed:
 
 3. **Setup Environment Variables**
 
-   - Copy `.env.example` files inside `apps/api` and `apps/web` to `.env`
-   - Fill in the necessary environment values (like database connection).
+- Copy `.env.example` files inside `apps/api` and `apps/web` to `.env`
+- Fill in the necessary environment values (like database connection).
 
    ```bash
    cp apps/api/.env.example apps/api/.env
