@@ -70,7 +70,8 @@ Make sure you have installed:
    cp apps/web/.env.example apps/web/.env
    ```
 
-*If you are going to use docker for api, you need to change the environment values 
+*If you are going to use docker for api, you need to change the **DATABASE_URL** value on environment. 
+
 
 4. **Start Database using Docker**
 
@@ -94,7 +95,8 @@ pnpm run docker:db:up
 pnpm run dev
 ```
 
-* If you are using docker on api, run these commands instead:
+
+*If you are using docker on api, run these commands instead:
 
 - If this is your first time, run a docker build:
 
