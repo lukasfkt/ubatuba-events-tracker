@@ -17,6 +17,7 @@
     "docker:api:down": "docker compose -f apps/api/docker-compose.yml down",
 
     "web": "turbo run dev --filter=web",
+    "web:test": "cd apps/web && pnpm run test",
 
     "full:install": "pnpm install && cd apps/api && poetry install"
   },

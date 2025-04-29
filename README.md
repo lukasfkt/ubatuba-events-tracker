@@ -215,10 +215,10 @@ Inside the repo will have a file called sample_events.json with the examples
 ## 🧪 Frontend Testing
 
 - This project uses **Jest** for unit and integration tests on the frontend (requires Node.js >= 21).
-- To run the frontend tests, navigate to the `apps/web` folder and execute:
+- To run the frontend tests execute:
 
 ```bash
-pnpm run jest
+pnpm run web:test
 ```
 
 ## 💬 Additional Notes
