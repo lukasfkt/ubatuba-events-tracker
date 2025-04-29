@@ -2,8 +2,14 @@
   "name": "api",
   "version": "0.0.0",
   "scripts": {
-    "dev": ".\\.venv\\Scripts\\python run.py",
-    "migrate": ".\\.venv\\Scripts\\alembic upgrade head",
+    "dev": "poetry run python run.py",
+    "migrate": "poetry run alembic upgrade head",
     "generate:requirements": "poetry export --without-hashes --format=requirements.txt > requirements.txt"
+  },
+  "dependencies": {
+    "python": "^0.0.4"
+  },
+  "devDependencies": {
+    "@repo/prettier": "workspace:*"
   }
 }
