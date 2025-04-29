@@ -13,7 +13,38 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 | Monorepo |                                                                                                                   [Turborepo](https://turbo.build/repo)                                                                                                                    |
 | Frontend | [Next.js 15](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Zustand](https://zustand-demo.pmnd.rs/), [React Query](https://tanstack.com/query/latest), [Zod](https://zod.dev/), [Lucide Icons](https://lucide.dev/), [shadcn/ui](https://ui.shadcn.com/) |
 | Backend  |                                                   [FastAPI](https://fastapi.tiangolo.com/), [SQLAlchemy](https://www.sqlalchemy.org/), [JWT Authentication](https://jwt.io/), [Alembic](https://alembic.sqlalchemy.org/)                                                   |
-| Database |                                                                  [PostgreSQL](https://www.postgresql.org/)                                                                  |
+| Database |                                                                                                                 [PostgreSQL](https://www.postgresql.org/)                                                                                                                  |
+
+## ⚙️ Prerequisites
+
+Make sure you have installed:
+
+- [Node.js (>= 21)](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
+
+  Install pnpm globally if you don't have it:
+
+  ```bash
+  npm install -g pnpm
+  ```
+
+- [Python (>= 3.11)](https://www.python.org/)
+
+  Verify installation:
+
+  ```bash
+  python --version
+  ```
+
+- [Poetry (2.1)](https://python-poetry.org/)
+
+  Verify installation:
+
+  ```bash
+  poetry --version
+  ```
+
+- [Docker](https://www.docker.com/) (for running the PostgreSQL database)
 
 ## ⚙️ Setup Instructions
 
@@ -27,13 +58,18 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 2. **Install dependencies**
 
    ```bash
-   pnpm full:install
+   pnpm run full:install
    ```
 
 3. **Setup Environment Variables**
 
    - Copy `.env.example` files inside `apps/api` and `apps/web` to `.env`
    - Fill in the necessary environment values (like database connection).
+
+   ```bash
+   cp apps/api/.env.example apps/api/.env
+   cp apps/web/.env.example apps/web/.env
+   ```
 
 4. **Start Database using Docker**
 

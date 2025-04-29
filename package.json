@@ -10,7 +10,7 @@
     "docker:up": "docker compose up -d",
     "docker:build": "docker compose up --build -d",
     "docker:down": "docker compose down",
-    "full:install": "pnpm install && cd apps/api && pip install -r requirements.txt"
+    "full:install": "pnpm install && cd apps/api && poetry install"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
