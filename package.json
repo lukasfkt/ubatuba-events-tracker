@@ -14,7 +14,8 @@
 
     "full:install": "pnpm install && cd apps/api && poetry install",
 
-    "web": "turbo run dev --filter=web"
+    "web": "turbo run dev --filter=web",
+    "web:test": "cd apps/web && pnpm run test"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

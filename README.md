@@ -70,7 +70,8 @@ Make sure you have installed:
    cp apps/web/.env.example apps/web/.env
    ```
 
-*If you are going to use docker for api, you need to change the environment values 
+*If you are going to use docker for api, you need to change the **DATABASE_URL** value on environment. 
+
 
 4. **Start Database using Docker**
 
@@ -94,7 +95,8 @@ pnpm run docker:db:up
 pnpm run dev
 ```
 
-* If you are using docker on api, run these commands instead:
+
+*If you are using docker on api, run these commands instead:
 
 - If this is your first time, run a docker build:
 
@@ -116,6 +118,8 @@ pnpm run docker:api:up
 pnpm run web
 ```
 
+> Frontend runs on: http://localhost:3000 <br>
+> Backend runs on: http://localhost:8000
 
 ## 👉 Application Structure
 
@@ -211,10 +215,10 @@ Inside the repo will have a file called sample_events.json with the examples
 ## 🧪 Frontend Testing
 
 - This project uses **Jest** for unit and integration tests on the frontend (requires Node.js >= 21).
-- To run the frontend tests, navigate to the `apps/web` folder and execute:
+- To run the frontend tests execute:
 
 ```bash
-pnpm run jest
+pnpm run web:test
 ```
 
 ## 💬 Additional Notes
