@@ -17,7 +17,7 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 
 ## ⚙️ Prerequisites
 
-Make sure you have installed:
+Make sure you have installed for **Option 1**:
 
 - [Node.js (>= 21)](https://nodejs.org/)
 - [pnpm](https://pnpm.io/)
@@ -44,9 +44,13 @@ Make sure you have installed:
   poetry --version
   ```
 
-- [Docker](https://www.docker.com/)  (for running the PostgreSQL database and/or the API)
+  **Or for option 2:**
+
+- [Docker](https://www.docker.com/) 
 
 ## ⚙️ Setup Instructions
+
+### 🔹Option 1: Local Environment Setup
 
 1. **Clone the repository**
 
@@ -58,7 +62,7 @@ Make sure you have installed:
 2. **Install dependencies**
 
    ```bash
-   pnpm run full:install
+   pnpm full:install
    ```
 
 3. **Setup Environment Variables**
@@ -70,53 +74,51 @@ Make sure you have installed:
    cp apps/web/.env.example apps/web/.env
    ```
 
-*If you are going to use docker for api, you need to change the **DATABASE_URL** value on environment. 
-
-
-4. **Start Database using Docker**
-
-- If this is your first time, run a docker build:
+4. **Run the Development Environment**
 
 ```bash
-pnpm run docker:db:build
-```
-
-- If you have already run the docker build, run the command below:
-
-```bash
-
-pnpm run docker:db:up
-
-```
-
-5. **Run the Development Environment**
-
-```bash
-pnpm run dev
+pnpm dev
 ```
 
 
-*If you are using docker on api, run these commands instead:
+### 🔹Option 2: Docker Setup
 
-- If this is your first time, run a docker build:
+1. **Clone the repository**
 
-```bash
-pnpm run docker:api:build
-```
+   ```bash
+   git clone https://github.com/your-username/ubatuba-events-tracker.git
+   cd ubatuba-events-tracker
+   ```
+   
+2. **Setup Environment Variables**
 
-- If you have already run the docker build, run the command below:
+- Copy `.env.example-docker` files inside `apps/api` and `apps/web` to `.env`.
 
-```bash
+   ```bash
+   cp apps/api/.env.example-docker apps/api/.env
+   cp apps/web/.env.example-docker apps/web/.env
+   ```
 
-pnpm run docker:api:up
+3. **Build And Run Docker Images**
+   
+- To build the images:
+  
+   ```bash
+   pnpm docker:build
+   ```
+   
+- If the images are already built, start the containers:
 
-```
+   ```bash
+   pnpm docker:up
+   ```
 
-- For front-end:
+- To stop and remove the containers:
 
-```bash
-pnpm run web
-```
+  ```bash
+   pnpm docker:down
+   ```
+  
 
 > Frontend runs on: http://localhost:3000 <br>
 > Backend runs on: http://localhost:8000
