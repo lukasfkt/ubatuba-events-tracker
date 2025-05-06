@@ -17,7 +17,7 @@ This project provides a **responsive frontend** and a **robust backend** to inte
 
 ## ⚙️ Prerequisites
 
-Make sure you have installed for **Option 1**:
+Make sure you have installed (**Option 1**):
 
 - [Node.js (>= 21)](https://nodejs.org/)
 - [pnpm](https://pnpm.io/)
@@ -44,7 +44,7 @@ Make sure you have installed for **Option 1**:
   poetry --version
   ```
 
-  **Or for option 2:**
+  **Or (Option 2):**
 
 - [Docker](https://www.docker.com/) 
 
